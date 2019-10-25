@@ -9,7 +9,24 @@
   ***************************************************/
 
 
+$acc = $_POST['acc'];
+$pw = $_POST['pw'];
 
+$dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
+$pdo = new pdo($dsn,'root','');
+
+$sql = "select * from user where acc='$acc' && pw='$pw'";
+
+$data=$pdo->query($sql)->fetch();
+
+print_r($data);
+
+// 比對 會員登入與資料庫 是否相甫
+if($acc==$data['acc'] && $pw==$data['pw']){
+  echo "成功";
+}else{
+  echo "失敗";
+}
 
 
 ?>
