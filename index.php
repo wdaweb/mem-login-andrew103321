@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!empty($_SESSION['login'])){
+  header("location:member_center.php?");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +51,11 @@
       <a href="forget.php" class="reg">忘記密碼</a>
     </td>
   </tr>
+ 
 </table>
 </form>   
+</div>
+    <a href="index.php">回首頁</a>
+  </div>
 </body>
 </html>

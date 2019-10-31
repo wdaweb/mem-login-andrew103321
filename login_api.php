@@ -7,7 +7,7 @@
  * 4.比對表單資料和資料庫資料是否一致
  * 5.根據比對的結果決定畫面的行為
   ***************************************************/
-
+  include "base.php";
 
 $acc = $_POST['acc'];
 $pw = $_POST['pw'];
@@ -17,6 +17,7 @@ $pdo = new pdo($dsn,'root','');
 
 // $sql = "select * from user where acc='$acc' && pw='$pw'"; 用於方法1 .2. 
 $sql="select id from user where acc='$acc' &&  pw='$pw'";   //用於方法 3 4
+    
 
 // 把 sql 送去資料庫查詢
  $data=$pdo->query($sql)->fetch();  //配合方法 1. 2. 3 
@@ -50,9 +51,12 @@ print_r($data);
 // }
 
 // 方法四
-if($data){
-  echo "成功" ;
-  header("location:member_center.php?id=".$data['id']);
+if(!empty($data)){
+  session_start();
+  echo "登入成功";
+  $_SESSION['login']=1;
+  $_SESSION['id']= $data['id'];
+  header("location:member_center.php");
 }else{   
   echo "失敗"; 
   header("location:index.php?err=1");
