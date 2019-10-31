@@ -15,18 +15,43 @@ $pw = $_POST['pw'];
 $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
 $pdo = new pdo($dsn,'root','');
 
-$sql = "select * from user where acc='$acc' && pw='$pw'";
+// $sql = "select * from user where acc='$acc' && pw='$pw'"; 用於方法1 .2. 
+$sql = "select count(*) as 'r' from user where acc='$acc' && pw='$pw'";    //用於方法 3 4
 
-$data=$pdo->query($sql)->fetch();
+// 把 sql 送去資料庫查詢
+// $data=$pdo->query($sql)->fetch();  配合方法 1. 2. 3 
+$data=$pdo->query($sql)->fetchColumn();   //配合法4
 
 print_r($data);
 
-// 比對 會員登入與資料庫 是否相甫
-if($acc==$data['acc'] && $pw==$data['pw']){
-  echo "成功";
-}else{
-  echo "失敗";
-}
 
+
+// 比對 會員登入與資料庫 是否相同
+// if($acc==$data['acc'] && $pw==$data['pw']){
+//   echo "成功";
+// }else{
+//   echo "失敗";
+// }
+
+//  方法2 比對 會員登入與資料庫  是否相同
+// if(!empty($data)){
+//   echo "成功" ;
+// }else{
+//   echo "失敗";
+// }
+
+//方法三
+// if($data["r"]==1){
+//   echo "成功" ;
+// }else{   
+//   echo "失敗"; 
+// }
+
+// 方法四
+if($data){
+  echo "成功" ;
+}else{   
+  echo "失敗"; 
+}
 
 ?>
