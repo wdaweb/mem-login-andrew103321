@@ -1,4 +1,9 @@
-<?php include "base.php";?>
+<?php include "base.php";
+  
+  if(empty($_SESSION['login'])){
+  exit();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,7 @@
   
 </head>
 <body>
+
   <div class="member">
     <div class="wellcome">
       HI! 歡迎光臨!以下是你的個人資料:
@@ -22,7 +28,7 @@
     // $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
     // $pdo = new pdo($dsn,'root','');
 
-    $sql = "select * from user where id='".$_GET['id']."' "; 
+    $sql="select * from user where id='".$_SESSION['id']."'";
 
     echo $sql;
     $user = $pdo->query($sql)->fetch(pdo::FETCH_ASSOC); 
@@ -57,6 +63,10 @@
         <td><?=$user['email'];?></td>
       </tr>
     </table>
+    
+    </div>
+    <a href="index.php">回首頁</a>
+  </div>
 
 
     </div>
