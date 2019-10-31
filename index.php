@@ -1,3 +1,15 @@
+<?php
+    // 匯入外來 php
+    // requive include  include_once requive_once 
+     // 另一寫法 include ("header.php");
+     include "header.php";
+
+     session_start();
+     if(!empty($_COOKIE['login'])){
+      header("location:member_center.php");
+   
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +28,7 @@
     if(!empty($_GET["err"])){
       echo "帳密錯誤";
     }
-    // 匯入外來 php
-    // requive include  include_once requive_once 
-     // 另一寫法 include ("header.php");
-    include "header.php";
+  
    
   ?>
   <h1>會員登入</h1>

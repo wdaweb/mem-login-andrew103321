@@ -52,7 +52,14 @@ print_r($data);
 // 方法四
 if($data){
   echo "成功" ;
-  header("location:member_center.php?id=".$data['id']);
+  // $_SESSION['login']=1;
+  // $_SESSION['id']=$data['id'];
+
+  setcookie("login",1,time()+120);
+  setcookie("id",$data['id'],time()+120);
+
+  header("location:member_center.php");
+
 }else{   
   echo "失敗"; 
   header("location:index.php?err=1");
