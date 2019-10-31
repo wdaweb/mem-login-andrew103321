@@ -8,3 +8,7 @@
 
 Markdown All in One  外掛顯示及時影像
 會員中心的資料讀出
+  
+   匯入外來 php
+    requive include  include_once(適用共用檔案)) requive_once 
+     另一寫法 include ("header.php");

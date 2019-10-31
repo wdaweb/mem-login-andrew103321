@@ -52,7 +52,7 @@ print_r($data);
 // 方法四
 if($data){
   echo "成功" ;
-  header("location:member_center.php?id=");
+  header("location:member_center.php?id=".$data['id']);
 }else{   
   echo "失敗"; 
   header("location:index.php?err=1");

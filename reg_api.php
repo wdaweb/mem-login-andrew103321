@@ -24,10 +24,10 @@ echo $date= $_POST['date'];
 echo "<br>";
 echo $eamil= $_POST['email'];
 
-
+include ('base.php');
 // insert into user() values();
-$dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo = new pdo($dsn,'root','');
+// $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
+// $pdo = new pdo($dsn,'root','');
 
 
 // 上傳資料庫

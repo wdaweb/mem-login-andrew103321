@@ -1,3 +1,4 @@
+<?php include "base.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
   <link rel="shortcut icon" href="#" type="image/x-icon">
   <title>會員中心</title>
   <link rel="stylesheet" href="style.css">
-
+  
 </head>
 <body>
   <div class="member">
@@ -18,8 +19,8 @@
       <!--請自行設計個人資料的呈現方式並從資料庫取得會員資料-->
 
     <?php
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-    $pdo = new pdo($dsn,'root','');
+    // $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
+    // $pdo = new pdo($dsn,'root','');
 
     $sql = "select * from user where id='".$_GET['id']."' "; 
 
