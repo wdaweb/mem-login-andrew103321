@@ -13,6 +13,9 @@
     if(!empty($_GET['s'])){
       echo "註冊成功、請輸入帳密已登入";
     }
+    if(!empty($_GET["err"])){
+      echo "帳密錯誤";
+    }
   ?>
   <h1>會員登入</h1>
 <form action="login_api.php" method="post"> 

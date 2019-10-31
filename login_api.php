@@ -16,11 +16,11 @@ $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
 $pdo = new pdo($dsn,'root','');
 
 // $sql = "select * from user where acc='$acc' && pw='$pw'"; 用於方法1 .2. 
-$sql = "select count(*) as 'r' from user where acc='$acc' && pw='$pw'";    //用於方法 3 4
+$sql="select id from user where acc='$acc' &&  pw='$pw'";   //用於方法 3 4
 
 // 把 sql 送去資料庫查詢
-// $data=$pdo->query($sql)->fetch();  配合方法 1. 2. 3 
-$data=$pdo->query($sql)->fetchColumn();   //配合法4
+ $data=$pdo->query($sql)->fetch();  //配合方法 1. 2. 3 
+// $data=$pdo->query($sql)->fetchColumn();   //配合法4
 
 print_r($data);
 
@@ -43,15 +43,19 @@ print_r($data);
 //方法三
 // if($data["r"]==1){
 //   echo "成功" ;
+//  
 // }else{   
 //   echo "失敗"; 
+//  
 // }
 
 // 方法四
 if($data){
   echo "成功" ;
+  header("location:member_center.php?id=");
 }else{   
   echo "失敗"; 
+  header("location:index.php?err=1");
 }
 
 ?>

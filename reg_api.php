@@ -43,6 +43,6 @@ if($pdo->exec($sql)){
     header("location:index.php?s=1");
  
 }else{
-    header("location:reg.php?b=2");
+    header("location:reg.php?s=2");
 }
 ?>
