@@ -15,8 +15,34 @@
 <tr>
     <td colspan="2" class="ct reg">
       <a href="index.php">回首頁</a>
+
+    <form action="forget.php" method="POST">
+    <table>
+    <tr>
+        <td>帳號：</td>
+        <td><input type="text" name="acc" id="acc"></>
+    </tr>
+    <tr>
+        <td>電子信箱：</>
+        <td><input type="text" name="email" id="email"></td>
+   </tr>
+    <tr>
+        <td colspan="2" class="ct">
+            <input type="submit" value="註冊">
+            <input type="reset" value="重置">
     </td>
   </tr>
+  </table>
+  </form>
+  
+  <?php
+  echo $acc= $_POST['acc'];
+  echo "<br>";
+  
+  echo $email= $_POST['email'];
+  ?>
+
+  
 </table>
 </body>
 </html>

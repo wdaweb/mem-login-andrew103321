@@ -1,7 +1,8 @@
 <?php include "base.php";
   
+  // 如果登入不成功，跳首頁
   if(empty($_SESSION['login'])){
-  exit();
+    header("localtion:index.php");
   }
 ?>
 <!DOCTYPE html>
@@ -64,9 +65,7 @@
       </tr>
     </table>
     
-    </div>
-    <a href="index.php">回首頁</a>
-  </div>
+    <a href="logout.php">登出</a>
 
 
     </div>

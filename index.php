@@ -54,8 +54,6 @@ if(!empty($_SESSION['login'])){
  
 </table>
 </form>   
-</div>
-    <a href="index.php">回首頁</a>
-  </div>
+
 </body>
 </html>
