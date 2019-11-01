@@ -43,19 +43,33 @@
   $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
   $pdo = new pdo($dsn,'root','');
 
-  $sql = "select id from user where acc='$acc' &&  email='$email' ";
-
-  echo "sql語法是 :".$sql;
-
-
+  $sql = "select pw from user where acc='$acc' &&  email=' $email' ";
   
-// if($pdo->exec($sql)){
-//   header("location:index.php?s=1");
+  echo "<br>";
+  echo "sql語法是 :".$sql;
+  echo "<br>";
 
+  $rows = $pdo->query($spl)->fetch();
+  //   $result=$pdo->query($sql);
+  //  $rows=$result->fetch();
+   
+   print_r($rows);
+
+
+
+
+  //  $data=$pdo->query($sql)->fetch();
+  //  print_r($data);
+// if(!empty($data)){
+//   print_r($data);
+//   header("location:forget.php?s=1");
 // }else{
-//   header("location:reg.php?s=2");
+//   header("location:index.php?");
 // }
-
+ 
+  
+   
+ 
 
   ?>
 

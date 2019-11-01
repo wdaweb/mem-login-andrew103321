@@ -1,8 +1,8 @@
 <?php include "base.php";
   
-  // 如果登入不成功，跳首頁
   if(empty($_SESSION['login'])){
-    header("localtion:index.php");
+    header("location:index.php");
+    exit();
   }
 ?>
 <!DOCTYPE html>
@@ -14,11 +14,23 @@
   <link rel="shortcut icon" href="#" type="image/x-icon">
   <title>會員中心</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+  table{
+    border-collapse:collapse;
+    border-spacing:0;
+  }
+  td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+  }
+  </style>
   
 </head>
 <body>
 
   <div class="member">
+  <a href="admin.php">刪除資料<a>
     <div class="wellcome">
       HI! 歡迎光臨!以下是你的個人資料:
     </div>
@@ -34,41 +46,58 @@
     echo $sql;
     $user = $pdo->query($sql)->fetch(pdo::FETCH_ASSOC); 
     ?>
+
+    <form action="eadit_user.php" method="post">
     <table>
-      <tr>
-        <td>id</td>
-        <td><?=$user['id'];?></td>
-      </tr>
-      <tr>
-        <td>acc</td>
-        <td><?=$user['acc'];?></td>
-      </tr>
-      <tr>
-        <td>pw</td>
-        <td><?=$user['pw'];?></td>
-      </tr>
-      <tr>
-        <td>addr</td>
-        <td><?=$user['addr'];?></td>
-      </tr>
-      <tr>
-        <td>tel</td>
-        <td><?=$user['tel'];?></td>
-      </tr>
-      <tr>
-        <td>birthday</td>
-        <td><?=$user['birthday'];?></td>
-      </tr>
-      <tr>
-        <td>email</td>
-        <td><?=$user['email'];?></td>
-      </tr>
-    </table>
-    
-    <a href="logout.php">登出</a>
+    <form action="edit_user.php" method="post">
+      <table>
+        <tr>
+          <td>id</td>
+          <td><?=$user['id'];?></td>
+        </tr>
+        <tr>
+          <td>acc</td>
+          <td><?=$user['acc'];?></td>
+        </tr>
+        <tr>
+          <td>pw</td>
+          <td><?=$user['pw'];?></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td><input type="text" name="name" id="name" value="<?=$user['name'];?>"></td>
+        </tr>
+        <tr>
+          <td>addr</td>
+          <td><input type="text" name="addr" id="addr" value="<?=$user['addr'];?>"></td>
+        </tr>
+        <tr>
+          <td>tel</td>
+          <td><input type="text" name="tel" id="tel" value="<?=$user['tel'];?>"></td>
+        </tr>
+        <tr>
+          <td>birthday</td>
+          <td><input type="text" name="birthday" id="birthday" value="<?=$user['birthday'];?>"></td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td><input type="text" name="email" id="email" value="<?=$user['email'];?>"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="hidden" name="id" value="<?=$user['id'];?>">
+            <input type="submit" value="編輯">
+          </td>
+        </tr>
+      </table>
+    </form>
 
 
     </div>
+    
+    <a href="logout.php">登出</a>
   </div>
+
+  </form>
 </body>
 </html>

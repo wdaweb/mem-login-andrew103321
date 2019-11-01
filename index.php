@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!empty($_SESSION['login'])){
-  header("location:member_center.php?");
+  header("location:member_center.php");
 }
 ?>
 <!DOCTYPE html>
