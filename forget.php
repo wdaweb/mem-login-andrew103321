@@ -43,17 +43,19 @@
   $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
   $pdo = new pdo($dsn,'root','');
 
-  $sql = "select pw from user where acc='$acc' &&  email=' $email' ";
+  $sql = "select pw from user where acc='$acc' && email='$email' ";
   
   echo "<br>";
   echo "sql語法是 :".$sql;
   echo "<br>";
 
-  $rows = $pdo->query($spl)->fetch();
+ 
+  $user = $pdo->query($sql)->fetch(); 
+  print_r($user);
   //   $result=$pdo->query($sql);
   //  $rows=$result->fetch();
    
-   print_r($rows);
+ 
 
 
 
