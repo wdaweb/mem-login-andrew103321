@@ -38,8 +38,25 @@
   <?php
   echo $acc= $_POST['acc'];
   echo "<br>";
-  
   echo $email= $_POST['email'];
+   
+  $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
+  $pdo = new pdo($dsn,'root','');
+
+  $sql = "select id from user where acc='$acc' &&  email='$email' ";
+
+  echo "sql語法是 :".$sql;
+
+
+  
+// if($pdo->exec($sql)){
+//   header("location:index.php?s=1");
+
+// }else{
+//   header("location:reg.php?s=2");
+// }
+
+
   ?>
 
   
