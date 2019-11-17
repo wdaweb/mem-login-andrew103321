@@ -7,20 +7,20 @@
  * 4.比對表單資料和資料庫資料是否一致
  * 5.根據比對的結果決定畫面的行為
   ***************************************************/
-  include "base.php";
+  include_once "base.php";
 
 $acc = $_POST['acc'];
 $pw = $_POST['pw'];
 
-$dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo = new pdo($dsn,'root','');
+// $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb_1";
+// $pdo = new pdo($dsn,'root','');
 
 // $sql = "select * from user where acc='$acc' && pw='$pw'"; 用於方法1 .2. 
 $sql="select id from user where acc='$acc' &&  pw='$pw'";   //用於方法 3 4
     
 
 // 把 sql 送去資料庫查詢
- $data=$pdo->query($sql)->fetch();  //配合方法 1. 2. 3 
+$data=$pdo->query($sql)->fetch();  //配合方法 1. 2. 3 
 // $data=$pdo->query($sql)->fetchColumn();   //配合法4
 
 print_r($data);

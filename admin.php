@@ -1,8 +1,9 @@
 <?php
     include_once "base.php";
     
-    $spl = "select * from user";
-    $rows = $pdo->query($spl)->fetchAll();  //全部取出
+    // $spl = "select * from user";
+    // $rows = $pdo->query($spl)->fetchAll();  //全部取出
+    $rows = all("user");
 ?>
 <!DOCTYPE html>
 <html lang="en">

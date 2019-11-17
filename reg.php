@@ -40,7 +40,7 @@
   </tr>
   <tr>
     <td>生日：</td>
-    <td><input type="date" name="date" id="date"></td>
+    <td><input type="date" name="birthday" id="birthday"></td>
   </tr>
     <td>電子信箱：</td>
     <td><input type="text" name="email" id="email"></td>
